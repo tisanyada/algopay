@@ -9,9 +9,9 @@ if (process.env.NODE_ENV === 'development') {
     departmentUrl = "http://localhost:3001/department"
 } else {
     // production
-    studentUrl = "https://ujalgopay-server.herokuapp.com/students"
-    facultyUrl = "https://ujalgopay-server.herokuapp.com/faculty"
-    departmentUrl = "https://ujalgopay-server.herokuapp.com/department"
+    studentUrl = "https://algopay-server.herokuapp.com/students"
+    facultyUrl = "https://algopay-server.herokuapp.com/faculty"
+    departmentUrl = "https://algopay-server.herokuapp.com/department"
 }
 
 
