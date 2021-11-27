@@ -1,12 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { createProfile } from "state/actions/studentActions"
+import { useNavigate } from "react-router-dom"
+import { getProfile, createProfile } from "state/actions/studentActions"
+
 
 
 
 
 const Createprofile = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [fullName, setFullName] = useState('')
     const [matriculationNumber, setMatriculationNumber] = useState('')
@@ -15,10 +18,20 @@ const Createprofile = () => {
     const [level, setLevel] = useState('')
     const [phoneNumber, setPhoneNumber] = useState('')
 
-    const profileState = useSelector(state => state.profile)
-    const { loading, errors } = profileState
+    const createProfileState = useSelector(state => state.createprofile)
+    const { errors } = createProfileState
     const authState = useSelector(state => state.auth)
     const { student } = authState
+
+    const profileState = useSelector(state => state.profile)
+    const { studentprofile } = profileState
+
+    useEffect(() => {
+        if (studentprofile) {
+            navigate('/dashboard', { replace: true })
+        }
+        dispatch(getProfile())
+    }, [studentprofile, navigate, dispatch])
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -73,13 +86,17 @@ const Createprofile = () => {
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="faculty">Faculty</label>
-                                    <input
+                                    <select
                                         type="text"
                                         className="form-control"
                                         id="faculty"
                                         value={faculty}
                                         onChange={(e) => setFaculty(e.target.value)}
-                                    />
+                                    >
+                                        <option value={null}>Faculty...</option>
+                                        <option value="Natural Science">Natural Science</option>
+                                        <option value="Enviromental Science">Enviromental Science</option>
+                                    </select>
                                     <span className='badge alert-warning'>
                                         {errors ? (
                                             errors.faculty ? errors.faculty : ''
@@ -87,17 +104,25 @@ const Createprofile = () => {
                                     </span>
                                 </div>
                                 <div className="mt-3">
-                                    <label htmlFor="level">Level</label>
-                                    <input
+                                    <label htmlFor="department">Department</label>
+                                    <select
                                         type="text"
                                         className="form-control"
-                                        id="level"
-                                        value={level}
-                                        onChange={(e) => setLevel(e.target.value)}
-                                    />
+                                        id="department"
+                                        value={department}
+                                        onChange={(e) => setDepartment(e.target.value)}
+                                    >
+                                        <option value={null}>Department...</option>
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Statistics">Statistics</option>
+                                        <option value="Geology">Geology</option>
+                                        <option value="Medicine and Surgery">Natural Science</option>
+                                        <option value="Computer Science Education">Computer Science Education</option>
+                                    </select>
                                     <span className='badge alert-warning'>
                                         {errors ? (
-                                            errors.level ? errors.level : ''
+                                            errors.department ? errors.department : ''
                                         ) : ''}
                                     </span>
                                 </div>
@@ -138,17 +163,17 @@ const Createprofile = () => {
                                     </span>
                                 </div>
                                 <div className="mt-3">
-                                    <label htmlFor="department">Department</label>
+                                    <label htmlFor="level">Level</label>
                                     <input
                                         type="text"
                                         className="form-control"
-                                        id="department"
-                                        value={department}
-                                        onChange={(e) => setDepartment(e.target.value)}
+                                        id="level"
+                                        value={level}
+                                        onChange={(e) => setLevel(e.target.value)}
                                     />
                                     <span className='badge alert-warning'>
                                         {errors ? (
-                                            errors.department ? errors.department : ''
+                                            errors.level ? errors.level : ''
                                         ) : ''}
                                     </span>
                                 </div>

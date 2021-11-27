@@ -25,7 +25,7 @@ const Signup = () => {
 
     useEffect(() => {
         if (student) {
-            navigator('/dashboard', {replace: true})
+            navigator('/dashboard', { replace: true })
         }
     }, [authState, student, navigator])
 
@@ -46,14 +46,14 @@ const Signup = () => {
             <main>
                 <section className="section section-sm pt-sm-5 bg-soft d-flex align-items-center">
                     <div className="container">
-                        <p className="text-center bg-black">
+                        <p className="text-center">
                             <Link to="/" className="d-flex align-items-center justify-content-center">
                                 <svg className="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd"></path></svg>
                                 Back
                             </Link>
                         </p>
                         {/* <div className="row justify-content-center form-bg-image" data-background-lg={process.env.PUBLIC_URL +"./assets/img/illustrations/signin.svg"}> */}
-                        <div className="row form-bg-image" data-background-lg="./assets/img/illustrations/signin.svg">
+                        <div className="row form-bg-image" data-background-lg={process.env.PUBLIC_URL + "/assets/img/illustrations/signin.svg"}>
                             <div className="col-12 d-flex align-items-center justify-content-center">
                                 <div className="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                                     <div className="text-center text-md-center mb-4 mt-md-0">
@@ -88,7 +88,8 @@ const Signup = () => {
                                             <label htmlFor="mnemonickey">Mnemonic Key</label>
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">
-                                                    <svg className="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                                    {/* <svg className="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg> */}
+                                                    <img src={process.env.PUBLIC_URL + "/assets/img/icons/blockchain-dot-com-svgrepo-com.svg"} className="icon icon-xs" alt="" />
                                                 </span>
                                                 <textarea
                                                     cols="20"
@@ -180,7 +181,9 @@ const Signup = () => {
                                             </div>
                                         </div>
                                         <div className="d-grid">
-                                            <button type="submit" className="btn btn-gray-800">Sign up</button>
+                                            {loading ? (
+                                                <button type="submit" className="btn btn-gray-800 mt-4">Loading...</button>
+                                            ) : <button type="submit" className="btn btn-gray-800 mt-4">Sign in</button>}
                                         </div>
                                     </form>
                                     <div className="d-flex justify-content-center align-items-center mt-4">

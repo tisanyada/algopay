@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-target-blank */
-import TopNavbar from "components/Dashboard/TopNavbar"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { logoutStudent } from "state/actions/studentActions"
-import NavbarToggler from "components/Dashboard/NavbarToggler"
-import RowoneContent from "components/Dashboard/RowoneContent"
-import RowtwoContent from "components/Dashboard/RowtwoContent"
-import SidebarNav from "components/Dashboard/SidebarNav"
-import Createprofile from "components/Dashboard/Createprofile/Createprofile"
+import TopNavbar from "components/StudentDashboard/TopNavbar"
+import NavbarToggler from "components/StudentDashboard/NavbarToggler"
+import RowoneContent from "components/StudentDashboard/RowoneContent"
+import RowtwoContent from "components/StudentDashboard/RowtwoContent"
+import SidebarNav from "components/StudentDashboard/SidebarNav"
+import Createprofile from "components/StudentDashboard/Createprofile/Createprofile"
+import { getProfile } from "state/actions/studentActions"
 
 
 
@@ -21,12 +21,17 @@ const Dashboard = () => {
     const { student } = authState
     const profileState = useSelector(state => state.profile)
     const { studentprofile } = profileState
-
+    
     useEffect(() => {
-        if (!student) navigate('/signin', { replace: true })
-    }, [student, navigate])
+        if (!student) {
+            navigate('/signin', { replace: true })
+        }
+    }, [student, navigate, dispatch])
+    
+    useEffect(() => {
+        dispatch(getProfile())
+    }, [dispatch])
 
-   
     return (
         <>
             <header>
@@ -34,9 +39,9 @@ const Dashboard = () => {
                 <SidebarNav />
             </header>
             <main className="content">
-                <TopNavbar />
+                <TopNavbar/>
 
-                {studentprofile ? (
+                {studentprofile && (
                     <>
                         <RowoneContent
                             studentprofile={studentprofile}
@@ -45,9 +50,8 @@ const Dashboard = () => {
                             studentprofile={studentprofile}
                         />
                     </>
-                ) : (
-                    <Createprofile />
                 )}
+                {!studentprofile && <Createprofile />}
             </main>
         </>
     )

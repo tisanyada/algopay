@@ -22,7 +22,7 @@ const Signin = () => {
 
     useEffect(() => {
         if (authState != null && student) {
-            navigator('/dashboard', {replace: true})
+            navigator('/dashboard', { replace: true })
         }
     }, [authState, student, navigator])
 
@@ -42,7 +42,7 @@ const Signin = () => {
                                 Back
                             </Link>
                         </p>
-                        <div className="row justify-content-center form-bg-image" data-background-lg="./assets/img/illustrations/signin.svg">
+                        <div className="row justify-content-center form-bg-image" data-background-lg={process.env.PUBLIC_URL + "/assets/img/illustrations/signin.svg"}>
                             <div className="col-12 d-flex align-items-center justify-content-center">
                                 <div className="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
                                     <div className="text-center text-md-center mb-4 mt-md-0">
@@ -56,14 +56,15 @@ const Signin = () => {
                                             <label htmlFor="mnemonickey">Mnemonic Key</label>
                                             <div className="input-group">
                                                 <span className="input-group-text" id="basic-addon1">
-                                                    <svg className="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                                                    {/* <svg className="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg> */}
+                                                    <img src={process.env.PUBLIC_URL + "/assets/img/icons/blockchain-dot-com-svgrepo-com.svg"} className="icon icon-xs" alt="" />
                                                 </span>
                                                 <textarea
                                                     cols="20"
                                                     rows="3"
                                                     type="mnemonickey"
                                                     className="form-control"
-                                                    placeholder="outdoor remind glue hip genius suit tiger snake two critic island road side unaware half boss blanket toddler faculty mountain perfect enter drastic ability omit"
+                                                    placeholder="unaware half boss blanket toddler faculty mountain perfect enter drastic ability omit..."
                                                     id="mnemonickey"
                                                     value={mnemonicKey}
                                                     onChange={(e) => setMnemonicKey(e.target.value)}
@@ -121,7 +122,9 @@ const Signin = () => {
                                             </div>
                                         </div>
                                         <div className="d-grid">
-                                            <button type="submit" className="btn btn-gray-800 mt-4">Sign in</button>
+                                            {loading ? (
+                                                <button type="submit" className="btn btn-gray-800 mt-4">Loading...</button>
+                                            ) : <button type="submit" className="btn btn-gray-800 mt-4">Sign in</button>}
                                         </div>
                                     </form>
                                     <div className="d-flex justify-content-center align-items-center mt-4 mb-5">

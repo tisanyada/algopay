@@ -10,7 +10,7 @@ const NotFound = () => {
         setTimeout(() => {
             navigate(-1, { redirect: true })
         }, 3000)
-    }, [])
+    }, [navigate])
 
     return (
         <main>
