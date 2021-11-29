@@ -179,7 +179,6 @@ export const getSchoolPaymentInfo = () => async (dispatch, getState) => {
             payload: data
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: GET_SCHOOLPAYMENTINFO_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -205,7 +204,6 @@ export const paySchoolCharges = (paymentdata) => async (dispatch, getState) => {
             payload: data
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: PAY_SCHOOL_CHARGES_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -233,7 +231,6 @@ export const getFacultyPaymentInfo = () => async (dispatch, getState) => {
             payload: data
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: GET_FACULTYPAYMENTINFO_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -259,7 +256,6 @@ export const payFacultyCharges = (paymentdata) => async (dispatch, getState) => 
             payload: data
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: PAY_FACULTY_CHARGES_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -287,7 +283,6 @@ export const getDepartmentPaymentInfo = () => async (dispatch, getState) => {
             payload: data
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: GET_DEPARTMENTPAYMENTINFO_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -313,7 +308,6 @@ export const payDepartmentCharges = (paymentdata) => async (dispatch, getState) 
             payload: data
         })
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: PAY_DEPARTMENT_CHARGES_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -340,9 +334,7 @@ export const getSchoolReceipt = () => async (dispatch, getState) => {
             type: GET_SCHOOL_RECEIPT_SUCCESS,
             payload: data
         })
-        console.log(data)
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: GET_SCHOOL_RECEIPT_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -369,9 +361,7 @@ export const getFacultyReceipt = () => async (dispatch, getState) => {
             type: GET_FACULTY_RECEIPT_SUCCESS,
             payload: data
         })
-        console.log(data)
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: GET_FACULTY_RECEIPT_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -398,9 +388,7 @@ export const getDepartmentReceipt = () => async (dispatch, getState) => {
             type: GET_DEPARTMENT_RECEIPT_SUCCESS,
             payload: data
         })
-        console.log(data)
     } catch (error) {
-        console.log(error.response);
         dispatch({
             type: GET_DEPARTMENT_RECEIPT_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,

@@ -149,7 +149,7 @@ export const departmentVerifyDepartmentReceipt = (receiptId) => async (dispatch,
     try {
         dispatch({ type: VERIFY_DEPARTMENTRECEIPT_REQUEST })
         const { departmentAuth: { department } } = getState()
-        console.log(receiptId)
+
         const config = {
             'Content-Type': 'application/json',
             'Authorization': department.token
@@ -165,7 +165,6 @@ export const departmentVerifyDepartmentReceipt = (receiptId) => async (dispatch,
             payload: data
         })
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: VERIFY_DEPARTMENTRECEIPT_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -192,7 +191,6 @@ export const departmentGetVerifiedSchoolReceipts = () => async (dispatch, getSta
             payload: data
         })
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: GET_VERIFIEDSCHOOLRECEIPTS_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,

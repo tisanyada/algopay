@@ -152,7 +152,7 @@ export const facultyVerifySchoolReceipt = (receiptId) => async (dispatch, getSta
     try {
         dispatch({ type: VERIFY_SCHOOLRECEIPT_REQUEST })
         const { facultyAuth: { faculty } } = getState()
-        console.log(receiptId)
+
         const config = {
             'Content-Type': 'application/json',
             'Authorization': faculty.token
@@ -168,7 +168,6 @@ export const facultyVerifySchoolReceipt = (receiptId) => async (dispatch, getSta
             payload: data
         })
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: VERIFY_SCHOOLRECEIPT_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
@@ -258,7 +257,6 @@ export const facultyVerifyFacultyReceipt = (receiptId) => async (dispatch, getSt
     try {
         dispatch({ type: VERIFY_FACULTYRECEIPT_REQUEST })
         const { facultyAuth: { faculty } } = getState()
-        console.log(receiptId)
         const config = {
             'Content-Type': 'application/json',
             'Authorization': faculty.token
@@ -274,7 +272,6 @@ export const facultyVerifyFacultyReceipt = (receiptId) => async (dispatch, getSt
             payload: data
         })
     } catch (error) {
-        console.log(error.response)
         dispatch({
             type: VERIFY_FACULTYRECEIPT_ERROR,
             payload: error.response && error.response.data ? error.response.data : null,
