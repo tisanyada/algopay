@@ -6,7 +6,7 @@ const NavbarToggler = () => {
     return (
         <>
             <nav className="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
-                <Link className="navbar-brand me-lg-5" to="./index.html">
+                <Link className="navbar-brand me-lg-5" to="#">
                     <img className="navbar-brand-light" src={process.env.PUBLIC_URL + "/assets/img/brand/dark.svg"} alt="Volt logo" />
                 </Link>
                 <div className="d-flex align-items-center">

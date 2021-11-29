@@ -47,7 +47,6 @@ const TopNavbar = () => {
                                 <Link className="nav-link pt-1 px-0" to="#" role="button" aria-expanded="false">
                                     <div className="media d-flex align-items-center">
                                         <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                                            {/* <span className="btn btn-gray-500 d-inline-flex align-items-center me-2">{student ? student.schoolMail : null}</span> */}
                                             <button type="button" class="btn btn-block btn-gray-800 mb-3" data-bs-toggle="modal" data-bs-target="#modal-notification">
                                                 <img
                                                     className="avatar rounded-circle" alt="avatar placeholder"
