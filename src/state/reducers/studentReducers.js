@@ -49,11 +49,11 @@ export const registerReducer = (state = {}, action) => {
 export const createProfileReducer = (state = {}, action) => {
     switch (action.type) {
         case STUDENT_CREATE_PROFILE_REQUEST:
-            return { loading: true }
+            return { loading: true, success: false }
         case STUDENT_CREATE_PROFILE_SUCCESS:
-            return { loading: false, studentprofile: action.payload }
+            return { loading: false, newprofile: action.payload, success: true }
         case STUDENT_CREATE_PROFILE_ERROR:
-            return { loading: false, errors: action.payload, error: action.error }
+            return { loading: false, errors: action.payload, error: action.error, success: false }
         default:
             return state
     }

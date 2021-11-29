@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable react/jsx-no-target-blank */
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
@@ -8,7 +6,6 @@ import NavbarToggler from "components/StudentDashboard/NavbarToggler"
 import RowoneContent from "components/StudentDashboard/RowoneContent"
 import RowtwoContent from "components/StudentDashboard/RowtwoContent"
 import SidebarNav from "components/StudentDashboard/SidebarNav"
-import Createprofile from "components/StudentDashboard/Createprofile/Createprofile"
 import { getProfile } from "state/actions/studentActions"
 
 
@@ -21,16 +18,19 @@ const Dashboard = () => {
     const { student } = authState
     const profileState = useSelector(state => state.profile)
     const { studentprofile } = profileState
-    
+
+
     useEffect(() => {
-        if (!student) {
-            navigate('/signin', { replace: true })
+        if (!student) navigate('/signin', { replace: true })
+        return () => {
+            dispatch(getProfile())
         }
     }, [student, navigate, dispatch])
-    
+
     useEffect(() => {
-        dispatch(getProfile())
-    }, [dispatch])
+        if (!studentprofile) navigate('/dashboard/createprofile', { replace: true })
+    }, [studentprofile, navigate])
+
 
     return (
         <>
@@ -39,8 +39,8 @@ const Dashboard = () => {
                 <SidebarNav />
             </header>
             <main className="content">
-                <TopNavbar/>
-
+                <TopNavbar />
+                
                 {studentprofile && (
                     <>
                         <RowoneContent
@@ -51,7 +51,6 @@ const Dashboard = () => {
                         />
                     </>
                 )}
-                {!studentprofile && <Createprofile />}
             </main>
         </>
     )

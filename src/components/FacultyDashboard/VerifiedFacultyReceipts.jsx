@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import Loader from "components/Loader/Loader"
 import { getVerifiedFacultyReceipts } from "state/actions/facultyActions"
+import Loader from "components/Loader/Loader"
 
 
 const VerifiedFacultyReceipts = () => {

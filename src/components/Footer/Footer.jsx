@@ -2,13 +2,13 @@ import { Link } from "react-router-dom"
 
 
 
-const Footer = () => {
+const Footer = ({ bg }) => {
     return (
-        <footer className="footer py-6 bg-gray-800 text-white">
+        <footer className={`footer py-6 bg-${bg ? bg : 'gray-800'} text-white`}>
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                        <img className="navbar-brand-dark mb-4" height="35" src="./assets/img/brand/light.svg" alt="Logo light" />
+                        <img className="navbar-brand-dark mb-4" height="35" src={process.env.PUBLIC_URL + "/assets/img/icons/icons8-blockchain-58.png"} alt="Logo light" />
                         <p>Algo Pay is a platform for students to pay school dues via the algorand blockchain</p>
                     </div>
                     <div className="col-6 col-md-2 mb-5 mb-lg-0">
@@ -23,7 +23,7 @@ const Footer = () => {
                         <span className="h5">Other</span>
                         <ul className="links-vertical mt-2">
                             <li>
-                                <Link to="#" target="_blank">Docs
+                                <Link to="/docs" target="_blank">Docs
                                     <span className="badge badge-sm bg-secondary text-dark ms-2">v1.0</span>
                                 </Link>
                             </li>

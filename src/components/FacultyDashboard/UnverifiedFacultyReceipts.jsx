@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import MetaLoader from "components/Loader/MetaLoader"
 import { getUnverifiedFacultyReceipts } from "state/actions/facultyActions"
+import Loader from "components/Loader/Loader"
 
 
 const UnverifiedFacultyReceipts = () => {
@@ -18,7 +18,7 @@ const UnverifiedFacultyReceipts = () => {
     return (
         <>
             <div className="table-responsive">
-                {loading && <MetaLoader />}
+                {loading && <Loader />}
                 <table className="table table-centered table-nowrap mb-0 rounded">
                     <thead className="thead-light">
                         <tr>

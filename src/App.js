@@ -23,6 +23,8 @@ import DepartmentDashboard from 'pages/department/DepartmentDashboard'
 import DepartmentsReceipts from 'pages/department/DepartmentReceipts'
 import VerifyDepartmentReceipt from 'components/DepartmentDashboard/VerifyDepartmentReceipt'
 import DepartmentSchoolReceipts from 'pages/department/DepartmentSchoolReceipts'
+import CreateProfile from 'components/StudentDashboard/CreateProfile'
+import Documentation from 'pages/Documentation'
 
 
 
@@ -32,12 +34,14 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path="/" exact element={<Home />} />
+				<Route path="/docs" exact element={<Documentation />} />
 
 				{/* student */}
 				<Route path="/signin" exact element={<Signin />} />
 				<Route path="/signup" exact element={<Signup />} />
 				<Route path="/dashboard" exact element={<Dashboard />} />
 				<Route path="/dashboard/school-payment" exact element={<SchoolPayment />} />
+				<Route path="/dashboard/createprofile" exact element={<CreateProfile />} />
 				<Route path="/dashboard/faculty-payment" exact element={<FacultyPayment />} />
 				<Route path="/dashboard/department-payment" exact element={<DepartmentPayment />} />
 				<Route path="/receipts/schoolcharges" exact element={<SchoolReceipt />} />

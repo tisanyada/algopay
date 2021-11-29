@@ -4,9 +4,13 @@ import { Link } from "react-router-dom"
 
 
 
-const Navbar = () => {
+const Navbar = ({ bg }) => {
     return (
-        <nav id="navbar-main" aria-label="Primary navigation" className="navbar navbar-main navbar-expand-lg navbar-theme-primary pt-4 navbar-dark">
+        <nav
+            id="navbar-main"
+            aria-label="Primary navigation"
+            className={`navbar navbar-main navbar-expand-lg bg-${bg ? bg : 'primary'} pt-4 navbar-dark`}
+        >
             <div className="container position-relative">
                 <div className="navbar-collapse collapse me-auto" id="navbar_global">
                     <div className="navbar-collapse-header">
