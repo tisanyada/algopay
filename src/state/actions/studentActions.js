@@ -87,6 +87,7 @@ export const createProfile = (userdata) => async (dispatch, getState) => {
         const config = {
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
                 'Authorization': student.token
             }
         }
