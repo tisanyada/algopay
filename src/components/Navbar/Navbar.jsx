@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-
 import { Link } from "react-router-dom"
 
 
@@ -16,8 +14,8 @@ const Navbar = ({ bg }) => {
                     <div className="navbar-collapse-header">
                         <div className="row">
                             <div className="col-6 collapse-brand">
-                                <Link to="./index.html">
-                                    <img src="./assets/img/brand/light.svg" alt="Algo pay logo" />
+                                <Link to="#">
+                                    <img src={process.env.PUBLIC_URL + "/assets/img/brand/light.svg"} alt="Algo pay logo" />
                                 </Link>
                             </div>
                             <div>
@@ -30,10 +28,10 @@ const Navbar = ({ bg }) => {
                     <div className="d-flex align-items-center ms-auto">
                         <ul className="navbar-nav navbar-nav-hover align-items-lg-center me-md-3">
                             <li className="nav-item me-2">
-                                <Link to="/signin" className="nav-link">Signin</Link>
+                                <Link to="/signin" className="nav-link btn bg-gray-500">Signin</Link>
                             </li>
                             <li className="nav-item me-2">
-                                <Link to="/signup" className="nav-link">Signup</Link>
+                                <Link to="/signup" className="nav-link btn bg-gray-600">Signup</Link>
                             </li>
                         </ul>
                     </div>

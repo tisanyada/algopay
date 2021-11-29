@@ -16,22 +16,22 @@ const Footer = ({ bg }) => {
                         <ul className="links-vertical mt-2">
                             <li><Link target="_blank" to="#">Blog</Link></li>
                             <li><Link target="_blank" to="#">About Us</Link></li>
-                            <li><Link target="_blank" to="#  ">Contact Us</Link></li>
+                            <li><Link target="_blank" to="#">Contact Us</Link></li>
                         </ul>
                     </div>
                     <div className="col-6 col-md-2 mb-5 mb-lg-0">
                         <span className="h5">Other</span>
                         <ul className="links-vertical mt-2">
                             <li>
-                                <Link to="/docs" target="_blank">Docs
+                                <Link to="/docs">Docs
                                     <span className="badge badge-sm bg-secondary text-dark ms-2">v1.0</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link target="_blank" to="https://themesberg.com/licensing">License</Link>
+                                <Link to="#">License</Link>
                             </li>
                             <li>
-                                <Link target="_blank" to="https://themesberg.com/contact">Support</Link>
+                                <Link to="#">Support</Link>
                             </li>
                         </ul>
                     </div>
