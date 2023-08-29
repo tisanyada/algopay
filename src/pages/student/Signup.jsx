@@ -183,7 +183,7 @@ const Signup = () => {
                                         <div className="d-grid">
                                             {loading ? (
                                                 <button type="submit" className="btn btn-gray-800 mt-4">Loading...</button>
-                                            ) : <button type="submit" className="btn btn-gray-800 mt-4">Sign in</button>}
+                                            ) : <button type="submit" className="btn btn-gray-800 mt-4">Sign up</button>}
                                         </div>
                                     </form>
                                     <div className="d-flex justify-content-center align-items-center mt-4">
